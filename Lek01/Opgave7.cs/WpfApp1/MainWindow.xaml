@@ -13,6 +13,7 @@
         <ListBox x:Name="ListboxNames" Margin="615,111,118,177"/>
         <Button x:Name="buttonClearListBox" Content="Clear Listbox&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Height="33" Width="106" Click="buttonClearListBox_Click"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="232,298,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="432,341,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
