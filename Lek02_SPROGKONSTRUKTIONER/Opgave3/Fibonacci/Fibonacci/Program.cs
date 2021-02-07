@@ -20,7 +20,7 @@ namespace Fibonacci
             for(int i = 2; i < grænseværdi; ++i)
             {
                 n3 = n1 + n2;
-                Console.Write(n3 + " ");
+                Console.Write(n3      + " ");
                 n1 = n2;
                 n2 = n3;
             }
