@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{934B982C-1B73-4C7B-8BD5-50CEE0040AC8}</ProjectGuid>
+    <ProjectGuid>{AD1203DC-5308-41B2-9525-D602991578A8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Spillekort</RootNamespace>
-    <AssemblyName>Spillekort</AssemblyName>
+    <RootNamespace>ReadFile</RootNamespace>
+    <AssemblyName>ReadFile</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="Collection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

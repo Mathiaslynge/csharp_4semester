@@ -18,6 +18,11 @@ namespace Sortering
             return a > b;
         }
 
+        public static bool lesserThan(int a, int b)
+        {
+            return a < b;
+        }
+
         // sorter array ved hjælp af Comparator delegate
 
         private static void swap(int[] list, int i, int j)
