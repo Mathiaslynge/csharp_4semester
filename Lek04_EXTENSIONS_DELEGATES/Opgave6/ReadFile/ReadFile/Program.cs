@@ -32,46 +32,144 @@ namespace ReadFile
             return x.Id.CompareTo(y.Id);
         }
     }
+    
+
 
     public class Person
     {
-        string Name, Age, Weight;
-       static List<Person> PersonListe = new List<Person>();
+        string Name;
+        int Age, Weight;
+
+        public Person(string name, int age, int weight)
+        {
+            this.Age = age;
+            this.Weight = weight;
+            this.Name = name;
+        }
 
         public Person(string s)
         {
             string[] S = s.Split(';');
             this.Name = S[0];
-            this.Age = S[1];
-            this.Weight = S[2];
+            this.Age = Int32.Parse(S[1]);
+            this.Weight = Int32.Parse(S[2]);
         }
+
+        public Int32 GetWeight()
+        {
+            return Weight;
+        }
+
+        public Int32 GetAge()
+        {
+            return Age;
+        }
+
+        public String GetName()
+        {
+            return Name;
+        }
+
         public override string ToString()
         {
             return Name + ", " + Age + ", " + Weight;
         }
 
-        public static void CreatePerson(string s)
-        {
-            Person person = new Person(s);
-            PersonListe.Add(person);
-        }
-
         public static List<Person> ReadCSVFile(string filename)
         {
+            List<Person> PersonListe = new List<Person>();
             using (var file = new StreamReader(filename))
             {
                 string line;
                 while((line = file.ReadLine()) != null)
                 {
-                    CreatePerson(line);
+                    string[] S = line.Split(';');
+                    string name = S[0];
+                    int age = Int32.Parse(S[1]);
+                    int weight = Int32.Parse(S[2]);
+                    PersonListe.Add(new Person(name, age, weight));
                 }
             }
             return PersonListe;
         }
+      
+    }
 
-        public static List<Person> GetPersonListe()
+
+    public class SortByAge : IComparer<Person>
+    {
+        public int Compare(Person x, Person y)
         {
-            return PersonListe;
+            try
+            {
+                if (x.GetAge() > y.GetAge())
+                {
+                    return 1;
+                }
+                else if (x.GetAge() < y.GetAge())
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+
+        }
+    }
+    public class SortByWeight : IComparer<Person>
+    {
+        public int Compare(Person x, Person y)
+        {
+            try
+            {
+                if(x.GetWeight() > y.GetWeight())
+                {
+                    return 1;
+                } else if (x.GetWeight() < y.GetWeight())
+                {
+                    return -1;
+                } else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+         
+        }
+    }
+    public class SortByName : IComparer<Person>
+    {
+        public int Compare(Person x, Person y)
+        {
+            try
+            {
+                if (x.GetName().CompareTo(y.GetName()) > 0)
+                {
+                    return 1;
+                }
+                else if (x.GetName().CompareTo(y.GetName()) < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+
         }
     }
 
@@ -157,11 +255,41 @@ namespace ReadFile
             var person = new Person(s);
             Console.WriteLine(person.ToString());
 
-            Person.ReadCSVFile("../../data.csv");
+            List<Person> personListe = Person.ReadCSVFile("../../data.csv");
 
-            Console.WriteLine("_______________________________________");
+            Console.WriteLine("______________________________________________________");
+            Console.WriteLine("______________________________________________________");
             Console.WriteLine("MIN PERSON LISTE");
-            foreach(Person p in Person.ReadCSVFile("../../data.csv"))
+            foreach(Person p in personListe)
+            {
+                Console.WriteLine(p);
+            }
+
+            personListe.Sort(new SortByAge());
+
+
+            Console.WriteLine("______________________________________________________");
+            Console.WriteLine("______________________________________________________\n SORTERET PÅ ALDER");
+            foreach(Person p in personListe)
+            {
+                Console.WriteLine(p);
+            }
+
+            personListe.Sort(new SortByWeight());
+
+
+            Console.WriteLine("______________________________________________________");
+            Console.WriteLine("______________________________________________________\n SORTERET PÅ VÆGT");
+            foreach (Person p in personListe)
+            {
+                Console.WriteLine(p);
+            }
+
+            personListe.Sort(new SortByName());
+
+            Console.WriteLine("______________________________________________________");
+            Console.WriteLine("______________________________________________________\n SORTERET PÅ NAVN");
+            foreach (Person p in personListe)
             {
                 Console.WriteLine(p);
             }
