@@ -1,0 +1,25 @@
+﻿<Window x:Class="Opgave6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Opgave6"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,-0.4,0">
+        <StackPanel HorizontalAlignment="Center">
+            <RadioButton x:Name="radioBtn1" Checked="radioBtn1_Checked" />
+            <RadioButton x:Name="radioBtn2" Checked="radioBtn2_Checked"/>
+            <RadioButton x:Name="radioBtn3" Checked="radioBtn3_Checked"/>
+            <RadioButton x:Name="radioBtn4" Checked="radioBtn4_Checked"/>
+            <CheckBox x:Name="chb1" Checked="chb1_Checked" Unchecked="chb1_Unchecked" />
+            <CheckBox x:Name="chb2" Checked="chb2_Checked" Unchecked="chb2_Unchecked" />
+            <CheckBox x:Name="chb3" Checked="chb3_Checked" Unchecked="chb3_Unchecked" />
+            <CheckBox x:Name="chb4" Checked="chb4_Checked" Unchecked="chb4_Unchecked" />
+
+        </StackPanel>
+        <StatusBar HorizontalAlignment="Left" Height="91" Margin="0,287,0,0" VerticalAlignment="Top" Width="794">
+            <StatusBarItem x:Name="statusBarItem" Content="StatusBarItem" Height="91.2" VerticalAlignment="Top"/>
+        </StatusBar>
+    </Grid>
+</Window>
