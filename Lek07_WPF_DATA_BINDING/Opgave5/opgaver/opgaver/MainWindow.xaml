@@ -1,0 +1,51 @@
+﻿<Window x:Class="opgaver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:opgaver"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="gridLeft"/>
+            <ColumnDefinition x:Name="gridRight"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Height="293" Margin="84,33,0,0" VerticalAlignment="Top" Width="390" Grid.Column="0">
+            <StackPanel Orientation="Horizontal" Height="auto">
+                <Label x:Name="lblNavn" Content="Navn:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="65"/>
+                <TextBox x:Name="txtNavn" HorizontalAlignment="Right" Margin="20,10,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Name, ElementName = lvwNames, Mode =OneWay}" VerticalAlignment="Top" Height="23" Width="114" TextChanged="txtNavn_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="auto" Grid.Column="0">
+                <Label x:Name="lblWeight" Content="Weight:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="65"/>
+                <TextBox x:Name="txtWeight" HorizontalAlignment="Right" Margin="20,10,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Weight, ElementName = lvwNames, Mode =TwoWay}" VerticalAlignment="Top" Height="23" Width="114" TextChanged="txtWeight_TextChanged"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="auto" Grid.Column="0">
+                <Label x:Name="lblAge" Content="Age:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="65"/>
+                <TextBox x:Name="txtAge" HorizontalAlignment="Right" Margin="20,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="23" Width="114"  TextChanged="txtAge_TextChanged"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="auto" Grid.Column="0">
+                <Label x:Name="lblScore" Content="Score:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="65"/>
+                <TextBox x:Name="txtScore" HorizontalAlignment="Right" Margin="20,10,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Score, ElementName = lvwNames, Mode =TwoWay}" VerticalAlignment="Top" Height="23" Width="114" TextChanged="txtScore_TextChanged"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="auto" Grid.Column="0">
+                <Label x:Name="lblAccepted" Content="Accepted:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="65"/>
+                <TextBox x:Name="txtAccepted" HorizontalAlignment="Right" Margin="20,10,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Accepted, ElementName = lvwNames, Mode =TwoWay}" VerticalAlignment="Top" Height="23" Width="114" TextChanged="txtAccepted_TextChanged"/>
+
+            </StackPanel>
+        </StackPanel>
+        <ListView x:Name="lvwNames" Grid.Column="1" HorizontalAlignment="Left" Height="335" Margin="57.2,33,0,0" VerticalAlignment="Top" Width="291" ItemsSource="{Binding}" DisplayMemberPath="ListBoxToString" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+    </Grid>
+</Window>
